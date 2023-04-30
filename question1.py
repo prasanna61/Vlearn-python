@@ -12,7 +12,7 @@ D_C = 250.00
 T_1 = p_1+(p_1*GST/100) #total price of Book 1 with GST
 T_2 = p_2+(p_2*GST/100)
 T_3 = p_3+(p_3*GST/100)
-m=n=p=0
+m=n=p=invoice=0
 ch1=input('Do you want Book1 type yes or no : ')
 if ch1=='yes':
     m=int(input('Enter the quantity of Book1: '))
@@ -22,6 +22,7 @@ if ch2=='yes':
 ch3=input('Do you want Book1 type yes or no: ')
 if ch3=='yes':
     p=int(input('Enter the quantity of Book3: '))
-invoice=m*T_1+n*T_2+p*T_3+D_C  #Including Delivery charges considering delivery charges same for delivering 1 book or for delivering many books at a time
+if m or n or p !=0: # when any one book is ordered then only invoice calculated else invoice=0
+    invoice=m*T_1+n*T_2+p*T_3+D_C  #Including Delivery charges considering delivery charges same for delivering 1 book or for delivering many books at a time
 #for one time delivery delivery charges=250.00
 print(f'Total invoice amount={invoice}')    
